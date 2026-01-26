@@ -13,26 +13,32 @@ The first iteration of this was running [pihole](https://pi-hole.net/) on a [Ras
 ### Hardware Selection
 Since this is a playground, we're starting out _inexpensive_. The Pi is really fun to play around with, but it's way too light on resources to start running meaningful workloads. I am also a big fan of Kubernetes, so a miniature high availability cluster is the starting point. First task was to get new hardware. The selection criteria was pretty simple: look at Reddit (e.g. [r/homelab](https://www.reddit.com/r/homelab/)) to see what folks like to use. I wanted reliable hardware from major vendors in a platform that would be possible to upgrade (whenever RAM prices come down). A node was a good purchase candidate if was under $100, had a modern-ish multi-core PC, 8+ GB of DDR4 RAM, an SSD (preferably NVMe but SATA will do), power efficient, and quiet. Even single node clusters hate running on HDDs, so believe all those installation guides when they tell you to put (at least) etcd on an SSD.
 
-So far, we have acquired two machines with the third still on the hunt. Technically we have three counting the Pi, but that's not going to let me run meaningful workloads or distributed storage, so we're not including it for now. Maybe it will show up as a simple worker in the future.
+Three machines have been acquired to server this purpose!
 
 **Dell Optiplex 3050**
 * 💰 Cost - $75
 * 🏭 Processor - i5-6500T
 * 💾 Storage - 480GB SATA SSD
-* 🧠 Memory - 8GB DDR4 RAM
+* 🧠 Memory - 8GB DDR4
 
 **Lenovo ThinkCentre M710Q**
 * 💰 Cost - $75
 * 🏭 Processor - i5-7500T
 * 💾 Storage - 256GB NVMe SSD
-* 🧠 Memory - 8GB DDR4 RAM
+* 🧠 Memory - 8GB DDR4
 
-Both of these machines have decent options for expanding RAM and storage in the future. Details about how these machines were provisioned are in XXX.
+**HP EliteDesk 800 G3 Mini**
+* 💰 Cost - $95
+* 🏭 Processor - i5-7500T
+* 💾 Storage - 256GB NVMe SSD
+* 🧠 Memory - 8GB DDR4
+
+All of these machines have decent options for expanding RAM and storage in the future. Importantly, I wanted three different machines to keep things flexible going forward in case any one of them had difficulty modifying the hardware. Some extra details about the server setup are available in `docs/server_setup.md`.
 
 ### Network Management
 If we were just ripping a single node cluster, networking wouldn't be that big of a deal. We'd let our DHCP server running on the router give us an IP address on the home network and call it good. For multi-node, we need a little more stability. Following [KISS](https://en.wikipedia.org/wiki/KISS_principle) and because I can get decision paralysis, I didn't want to go all in on custom VLANs, firewalls, and the sort. The simplest solution here for getting stable IPs is to configure static IP addresses. This could be achieved by assigning static leases in the DHCP server or assigning static IPs directly with the servers' netplan configuration. Either would work fine, but I opted for static IPs. Last thing that had to be sorted out was to update the address pool of the DHCP server. The goal here is to make sure the dynamic pool never overlapped with my Kubernetes nodes and services. Since my default home LAN 192.168.1.0/24, I configured the DHCP to server only out of 192.168.1.2 through .199. This leaves me .200 to .255 for all my Kubernetes experimentation needs.
 
-The netplan configuration used for a node is available in XXX.
+The netplan configuration used for a node is available in `src/netplan_templates`.
 
 ### Kubernetes
 #### Provider
