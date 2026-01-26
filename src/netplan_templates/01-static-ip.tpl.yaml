@@ -3,7 +3,7 @@ network:
   version: 2
   renderer: networkd
   ethernets:
-    enp3s0:
+    {{ ethernet_interface }}:
       dhcp4: no
       addresses:
         - "{{server_static_ip}}/24"
