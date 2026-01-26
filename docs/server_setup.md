@@ -44,3 +44,32 @@ For my application, I want a static IP address. This change can be done in a few
 4. `sudo netplan apply`
 
 If you're doing this over ssh, your session will terminate. You should be able to `ping` the device by the new IP address and `ssh` in again.
+
+### Disable Wireless Modules
+Since my servers are hardwired on my home network, I do not need Wifi access. To be security conscious, I also opted to disable the bluetooth integration
+on each server. Here's the procedure for doing that.
+1. `sudo nano /etc/modprobe.d/disable-wireless.conf` to modify kernel module behavior
+2. Add the following exclusion directives
+```
+# Disable Wi-Fi
+blacklist iwlwifi
+blacklist cfg80211
+blacklist mac80211
+
+# Disable Bluetooth
+blacklist bluetooth
+blacklist btusb
+```
+3. `sudo update-initramds -u` to update kernel settings
+4. `sudo systemctl disable --now bluetooth.service` to disable bluetooth systemd service
+5. `nmcli radio wifi off` to disable wifi devices
+6. `sudo nano /etc/NetworkManager/conf.d/disable-wifi.conf` and add the following contents to make this persistent
+```
+[keyfile]
+unmanaged-devices=type:wifi
+```
+7. `sudo systemctl restart NetworkManager` to apply
+8. `sudo reboot` to apply all the changes
+
+After a successful reboot, there a few quick ways to verify the changes were applied coorectly. `ip link` shouldn't show any wireless interfaces. These will 
+typically start with `wl` if present. `hciconfig` should show no devices. `rfkill list` should also show no devices.
