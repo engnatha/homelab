@@ -62,7 +62,7 @@ blacklist btusb
 ```
 3. `sudo update-initramds -u` to update kernel settings
 4. `sudo systemctl disable --now bluetooth.service` to disable bluetooth systemd service
-5. `nmcli radio wifi off` to disable wifi devices
+5. `sudo nmcli radio wifi off` to disable wifi devices
 6. `sudo nano /etc/NetworkManager/conf.d/disable-wifi.conf` and add the following contents to make this persistent
 ```
 [keyfile]
