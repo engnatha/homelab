@@ -1,0 +1,15 @@
+# Configure a server static IP address
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp3s0:
+      dhcp4: no
+      addresses:
+        - "{{server_static_ip}}/24"
+      routes:
+        - to: default
+          via: "{{ home_gateway }}"
+      nameservers:
+        addresses:
+          - "{{ home_dns_server }}"
