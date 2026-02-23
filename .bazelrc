@@ -1,0 +1,6 @@
+# Configuration for running things quietly until --quiet works better
+# https://github.com/bazelbuild/bazel/issues/4867
+common:quiet --noshow_progress
+common:quiet --ui_event_filters=,+error,+fail
+common:quiet --show_result=0
+common:quiet --logging=0

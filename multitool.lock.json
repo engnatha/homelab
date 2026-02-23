@@ -19,5 +19,16 @@
         "cpu": "x86_64"
       }
     ]
+  },
+  "kubectl": {
+    "binaries": [
+      {
+        "kind": "file",
+        "sha256": "cf699c56340dc775230fde4ef84237d27563ea6ef52164c7d078072b586c3918",
+        "url": "https://dl.k8s.io/release/v1.35.0/bin/darwin/arm64/kubectl",
+        "os": "macos",
+        "cpu": "arm64"
+      }
+    ]
   }
 }

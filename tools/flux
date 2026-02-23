@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+bazel run --config quiet @multitool//tools/flux -- "$@"
