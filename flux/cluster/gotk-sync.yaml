@@ -9,4 +9,4 @@ spec:
   secretRef:
     name: homelab-repo
   ref:
-    branch: ne.install-fluxcd
+    branch: main
