@@ -4,17 +4,17 @@
     "binaries": [
       {
         "kind": "archive",
-        "url": "https://github.com/fluxcd/flux2/releases/download/v2.8.0/flux_2.8.0_linux_amd64.tar.gz",
+        "url": "https://github.com/fluxcd/flux2/releases/download/v2.9.4/flux_2.9.4_linux_amd64.tar.gz",
         "file": "flux",
-        "sha256": "5339d6a6f85be36238480308458c86fc9a839821a80c7a55f1baf12151b47fd6",
+        "sha256": "c2c397a52930f52d2005c01d276116b059d062de379386d58e98115380a766a2",
         "os": "linux",
         "cpu": "x86_64"
       },
       {
         "kind": "archive",
-        "url": "https://github.com/fluxcd/flux2/releases/download/v2.8.0/flux_2.8.0_darwin_arm64.tar.gz",
+        "url": "https://github.com/fluxcd/flux2/releases/download/v2.9.4/flux_2.9.4_darwin_arm64.tar.gz",
         "file": "flux",
-        "sha256": "60ffdb837b20c43de848029846634c7b2289753eb341e62b7dd5f155265225e8",
+        "sha256": "5350675411f1c8c20fb7fd827450933e939f7ab82a2cd92f8fa2abe497761911",
         "os": "macos",
         "cpu": "arm64"
       }
@@ -24,19 +24,19 @@
     "binaries": [
       {
         "kind": "archive",
+        "url": "https://github.com/derailed/k9s/releases/download/v0.51.0/k9s_Linux_amd64.tar.gz",
         "file": "k9s",
-        "url": "https://github.com/derailed/k9s/releases/download/v0.50.18/k9s_Darwin_arm64.tar.gz",
-        "sha256": "68ff1541c60620466989019e86101805c1b6c70a746b1561261a403801f7fd48",
-        "os": "macos",
-        "cpu": "arm64"
+        "sha256": "c3752ad51a5a4015a113819c4eeb6e55a4d0e4b8e652494797532f6fc8161dd7",
+        "os": "linux",
+        "cpu": "x86_64"
       },
       {
         "kind": "archive",
+        "url": "https://github.com/derailed/k9s/releases/download/v0.51.0/k9s_Darwin_arm64.tar.gz",
         "file": "k9s",
-        "url": "https://github.com/derailed/k9s/releases/download/v0.50.18/k9s_Linux_amd64.tar.gz",
-        "sha256": "0b697ed4aa80997f7de4deeed6f1fba73df191b28bf691b1f28d2f45fa2a9e9b",
-        "os": "linux",
-        "cpu": "x86_64"
+        "sha256": "9b8c0e8f461e5d33aeee43a67f5ef4aff646a008a786887b8266cbb153c610cc",
+        "os": "macos",
+        "cpu": "arm64"
       }
     ]
   },
@@ -55,22 +55,6 @@
     "binaries": [
       {
         "kind": "archive",
-        "url": "https://github.com/bazel-contrib/multitool/releases/download/v0.9.0/multitool-aarch64-apple-darwin.tar.xz",
-        "file": "multitool-aarch64-apple-darwin/multitool",
-        "sha256": "8f5e0cd033b0fcc128c762f8d527110433523da378619cecf40e91c1df5c0686",
-        "os": "macos",
-        "cpu": "arm64"
-      },
-      {
-        "kind": "archive",
-        "url": "https://github.com/bazel-contrib/multitool/releases/download/v0.9.0/multitool-x86_64-apple-darwin.tar.xz",
-        "file": "multitool-x86_64-apple-darwin/multitool",
-        "sha256": "abde3bbbd49a09d33048e1f55cc9a8aa5dd61a13493a0b1bd5ffc2c56e5bf837",
-        "os": "macos",
-        "cpu": "x86_64"
-      },
-      {
-        "kind": "archive",
         "url": "https://github.com/bazel-contrib/multitool/releases/download/v0.9.0/multitool-aarch64-unknown-linux-gnu.tar.xz",
         "file": "multitool-aarch64-unknown-linux-gnu/multitool",
         "sha256": "693b66def2d8dacdfcb5a011b7c32a8e89a13bdc031db8dc40c0759a38253103",
@@ -83,6 +67,22 @@
         "file": "multitool-x86_64-unknown-linux-gnu/multitool",
         "sha256": "34dc5968dad458a4050ebde58e484ebb7c624a119e4031347683eeb80922e6df",
         "os": "linux",
+        "cpu": "x86_64"
+      },
+      {
+        "kind": "archive",
+        "url": "https://github.com/bazel-contrib/multitool/releases/download/v0.9.0/multitool-aarch64-apple-darwin.tar.xz",
+        "file": "multitool-aarch64-apple-darwin/multitool",
+        "sha256": "8f5e0cd033b0fcc128c762f8d527110433523da378619cecf40e91c1df5c0686",
+        "os": "macos",
+        "cpu": "arm64"
+      },
+      {
+        "kind": "archive",
+        "url": "https://github.com/bazel-contrib/multitool/releases/download/v0.9.0/multitool-x86_64-apple-darwin.tar.xz",
+        "file": "multitool-x86_64-apple-darwin/multitool",
+        "sha256": "abde3bbbd49a09d33048e1f55cc9a8aa5dd61a13493a0b1bd5ffc2c56e5bf837",
+        "os": "macos",
         "cpu": "x86_64"
       }
     ]
